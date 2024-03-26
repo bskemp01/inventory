@@ -1,18 +1,3 @@
-export const PlantLocations = [
-  '2810',
-  '2811',
-  '2820',
-  '2830',
-  '2835',
-  '2845',
-  '2855',
-  '2865',
-  '2875',
-  '2885',
-];
-
-export const StorageLocations = ['1000', '1010', '7500', '9000'];
-
 export const locationDetails = [
   {locationName: 'Sparta', lat: 36.055834345147545, lon: -85.52148956369099},
   {locationName: 'Montgomery', lat: 41.72236281911735, lon: -88.35948335956978},
