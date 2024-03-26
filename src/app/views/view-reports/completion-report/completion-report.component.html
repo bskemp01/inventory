@@ -1,0 +1,17 @@
+<div class="completion-report-container">
+  <button class="refresh-button" (click)="refreshData()">Refresh</button>
+  <highcharts-chart
+    #columnChart
+    id="columnChart"
+    class="columnChart"
+    [Highcharts]="highcharts"
+    [options]="chartOptions"
+    [(update)]="updateFlag"
+  ></highcharts-chart>
+</div>
+<div
+  class="loading-spinner-container"
+  *ngIf="isLoadingCompletionReport$ | async"
+>
+  <app-loading></app-loading>
+</div>
