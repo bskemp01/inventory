@@ -1,0 +1,35 @@
+<div class="toolbar">
+  <div class="title-container">
+    <img class="hormann-logo" src="assets/images/hormann_logo.jpg" />
+    <span class="title">Year End Inventory System</span>
+  </div>
+
+  <div class="reports-container">
+    <button
+      [disableRipple]="true"
+      mat-flat-button
+      class="reports-button text-title"
+      (click)="openReportsSelection()"
+    >
+      Reports
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before" class="reports-menu">
+      <button
+      [disableRipple]="true"
+      mat-flat-button
+      class="reports-menu-button text-title"
+      (click)="openReportsSelection()"
+    >
+      View Reports
+    </button>
+    <button
+      [disableRipple]="true"
+      mat-flat-button
+      class="reports-menu-button text-title"
+      (click)="openReportsSelection()"
+    >
+      Download Reports
+    </button>
+    </mat-menu>
+  </div>
+</div>

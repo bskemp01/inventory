@@ -1,0 +1,47 @@
+.hormann-logo {
+  height: 35px;
+}
+
+.reports-button {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.reports-menu-button {
+  color: white !important;
+  background-color: #003a7d !important;
+}
+
+.reports-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reports-menu {
+  background-color: #003a7d !important;
+}
+
+.title {
+  color: white;
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.title-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 475px;
+}
+
+.toolbar {
+  align-items: center;
+  background-color: #003a7d;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 10px 0 5px;
+}
