@@ -21,7 +21,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 const routes: Routes = [
   {
     path: '',
-    component: ViewReportsComponent,
+    component: CompletionReportComponent,
   },
   {
     path: 'admin/completionReport',

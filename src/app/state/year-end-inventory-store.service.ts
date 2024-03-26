@@ -4,13 +4,15 @@ import { ApiService } from '../services/api/api.service';
 import { NotificationService } from '../services/notification/notifications.service';
 import { ObservableStore } from '@codewithdan/observable-store';
 import { SosTicketModel } from '../models/year-end-inventory-models/sosTicketModel';
-import { BehaviorSubject, EMPTY, catchError, forkJoin } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, forkJoin, of } from 'rxjs';
 import { errorMessages } from '../const/errorMessages.const';
 import { GetSosZmmSalesOrderResponseModel } from '../models/year-end-inventory-models/getSosZmmSalesOrderResponseModel';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { downloadToXLSX } from '../utils/convert-to-xlsx.utils';
 import { UnrestrictedZmmModel } from '../models/year-end-inventory-models/unrestrictedZmmModel';
 import { UnrestrictedTicketModel } from '../models/year-end-inventory-models/unrestrictedTicketModel';
+import { sosMockInventoryData } from '../const/mockSosData.const';
+import { mockURInventoryData } from '../const/mockURData.const';
 
 const enum YearEndInventoryStates {
   INIT_STATE = 'INIT_STATE',
@@ -202,29 +204,49 @@ export class YearEndInventoryStateService extends ObservableStore<YearEndInvento
       });
   }
 
+  sosCompletionReport(): Observable<any> {
+    return of(sosMockInventoryData);
+  }
+
+  urCompletionReport(): Observable<any> {
+    return of(mockURInventoryData);
+  }
+
   completionReports() {
     this.isLoadingCompletionReport$.next(true);
     forkJoin([
-      this.api.sosCompletionReport().pipe(
-        catchError((err) => {
-          this.setError(
-            errorMessages.errorMessages.reportError,
-            errorMessages.errorMessages.reportErrorMsg,
-            err || '',
-          );
-          return EMPTY;
-        }),
-      ),
-      this.api.urCompletionReport().pipe(
-        catchError((err) => {
-          this.setError(
-            errorMessages.errorMessages.reportError,
-            errorMessages.errorMessages.reportErrorMsg,
-            err || '',
-          );
-          return EMPTY;
-        }),
-      ),
+      // this.api.sosCompletionReport().pipe(
+      //   catchError((err) => {
+      //     this.setError(
+      //       errorMessages.errorMessages.reportError,
+      //       errorMessages.errorMessages.reportErrorMsg,
+      //       err || '',
+      //     );
+      //     return EMPTY;
+      //   }),
+      // ),
+      // this.api.urCompletionReport().pipe(
+      //   catchError((err) => {
+      //     this.setError(
+      //       errorMessages.errorMessages.reportError,
+      //       errorMessages.errorMessages.reportErrorMsg,
+      //       err || '',
+      //     );
+      //     return EMPTY;
+      //   }),
+      // ),
+        this.sosCompletionReport().pipe(
+          catchError((err) => {
+            // Handle errors if any
+            return EMPTY;
+          })
+        ),
+        this.urCompletionReport().pipe(
+          catchError((err) => {
+            // Handle errors if any
+            return EMPTY;
+          })
+        )
     ]).subscribe(([sosReport, urReport]) => {
       const st = this.getState();
       st.sosCompletionReport = sosReport;

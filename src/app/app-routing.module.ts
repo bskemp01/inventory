@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'inventoryApps',
-    loadChildren: () =>
-      import('./views/inventory-apps/inventory-apps.module').then(
-        (m) => m.InventoryAppsModule,
-      ),
-  },
+  // {
+  //   path: 'inventoryApps',
+  //   loadChildren: () =>
+  //     import('./views/inventory-apps/inventory-apps.module').then(
+  //       (m) => m.InventoryAppsModule,
+  //     ),
+  // },
   {
     path: 'viewReports',
     loadChildren: () =>
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'inventoryApps',
+    redirectTo: 'viewReports',
   },
 ];
 
