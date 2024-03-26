@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewReportsComponent } from './view-reports/view-reports.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ViewReportsComponent, CompletionReportComponent, LocationReportComponent],
+  declarations: [CompletionReportComponent, LocationReportComponent],
   imports: [
     CommonModule,
     AgGridModule,
